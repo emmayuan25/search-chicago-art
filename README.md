@@ -1,3 +1,3 @@
 # Overview
 
-This is a simple search engine that displays pictures based on user's input
+This is a simple search app that displays pictures based on user's input sourced from Chicago Art API

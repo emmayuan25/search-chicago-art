@@ -12,15 +12,12 @@ function App(){
 
     const handleSearch = (e) => {
         setSearchText(e.target.value);
-        // console.log(searchText);
     } 
 
-    // const [ state, setState ] = useState({items:[], isLoaded: false});
     const [ results, setResults ] = useState([]);
 
     // get search keyword
     function handleKeyword(event) {
-        // console.log(event);
 
         keyword = keywordRef.current.value;
         if (keyword === '') {
@@ -28,31 +25,26 @@ function App(){
         }
 
         componentDidMount(searchText);
-
-        // setSearchText(keyword);
-
-        // console.log(keyword);
-        // console.log(searchText);
     }
 
     const componentDidMount = async (searchText) => {
         let response = await axios.get(`https://api.artic.edu/api/v1/artworks/search?q=${ searchText }&query[term][is_public_domain]=true`);
         response = response.data.data;
-        console.log(response);
         setResults(response);
         
-        // console.log(results.items);
+        const resultItems = results.map((item) =>
+            catchImg(item.api_link)
+        );
     }
 
-    // function catchImage(props) {
-    //     const resultImgs = state.items.map(({api_link}) => 
-    //         fetch(api_link)
-    //         .then(res => res.json())
-    //         .then(json => {
-    //             <SearchResult item={image_id} />
-    //         })
-    //     );
-    // }
+    const catchImg = async (link) => {
+        let img_id = await axios.get(`${link}`);
+        img_id = img_id.data.data.image_id;
+        console.log(img_id);
+        
+        <SearchResult props={img_id} />
+
+    }
 
     return (
         <div className="container">

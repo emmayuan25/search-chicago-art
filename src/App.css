@@ -2,16 +2,17 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
+/* App */
 .container {
-    display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 
 header {
-    font-family: 'Courier New', Courier, monospace;
     color: black;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 2em;
     text-align: center;
     margin: 150px auto 80px;
@@ -24,25 +25,64 @@ header {
 }
 
 .searchInput {
+    border-style: none;
+    border-bottom: 1px black solid;
+    height: 30px;
     font-family: inherit;
     font-size: 1em;
     width: 250px;
-    height: 30px;
-    border-style: none;
-    border-bottom: 1px black solid;
 }
 
 
 .searchBtn {
-    font-family: inherit;
-    margin-left: 30px;
-    height: 30px;
-    border-radius: 5%;
     background-color: white;
+    border-radius: 5%;
     color: black;
+    font-family: inherit;
+    height: 30px;
+    margin-left: 30px;
 }
 
 .searchBtn:hover {
     background-color: black;
     color: white;
+}
+
+
+
+/* Search Results */
+.displayResults {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+
+
+
+/* Result Box */
+.ResultBox {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 50px;
+    width: 300px;
+}
+
+.resultImg {
+    height: 150px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imgTitle {
+    background-color: rgba(250, 235, 215, 0.245);
+    text-align: center;
+    font-weight: bold;
+}
+
+.imgYear {
+    background-color: rgba(250, 235, 215, 0.245);
+    text-align: center;
 }

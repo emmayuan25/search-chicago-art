@@ -1,5 +1,4 @@
 import React, { useState , useRef } from 'react';
-import SearchBox from './SearchBox';
 import './App.css';
 import axios from 'axios';
 import SearchResult from './SearchResult';
@@ -8,7 +7,7 @@ function App(){
     const keywordRef = useRef();
     var keyword = "";
 
-    const  [searchText, setSearchText] = useState('');
+    const [searchText, setSearchText] = useState('');
 
     const handleSearch = (e) => {
         setSearchText(e.target.value);
@@ -32,18 +31,8 @@ function App(){
         response = response.data.data;
         setResults(response);
         
-        const resultItems = results.map((item) =>
-            catchImg(item.api_link)
-        );
-    }
-
-    const catchImg = async (link) => {
-        let img_id = await axios.get(`${link}`);
-        img_id = img_id.data.data.image_id;
-        console.log(img_id);
+        console.log(results);
         
-        <SearchResult props={img_id} />
-
     }
 
     return (
@@ -53,10 +42,12 @@ function App(){
             <div className="searchBar">
                 <input className='searchInput' onChange={ handleSearch } ref={ keywordRef } placeholder="Search for..." type="text" />
                 <button className='searchBtn' onClick={ handleKeyword }>Search</button>
-
             </div>
-            
-            <SearchBox />
+
+            <div className="displayResults">
+                <SearchResult images={results} />
+            </div>
+             
         </div>
     )
 }

@@ -10,7 +10,7 @@ const ResultBox = ({link}) => {
     const catchImg = async (link) => {
         let target = await axios.get(`${link}`);
         let img_id = target.data.data.image_id;
-        let image = "https://www.artic.edu/iiif/2/" + img_id + "/full/843,/0/default.jpg";
+        let image = "https://www.artic.edu/iiif/2/" + img_id + "/full/600,/0/default.jpg";
 
         setImage(image);
         setItem(target.data.data);
@@ -19,7 +19,7 @@ const ResultBox = ({link}) => {
     }
     
     catchImg(link);
-    console.log(item, image);
+    // console.log(item, image);
 
     
     return (

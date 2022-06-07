@@ -27,6 +27,7 @@ function App(){
     }
 
     const componentDidMount = async (searchText) => {
+        console.log(searchText);
         let response = await axios.get(`https://api.artic.edu/api/v1/artworks/search?q=${ searchText }&query[term][is_public_domain]=true`);
         response = response.data.data;
         setResults(response);

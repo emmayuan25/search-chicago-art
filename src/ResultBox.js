@@ -42,9 +42,10 @@ const ResultBox = ({link}) => {
             <img className="resultImg" src={image} alt={item.title} onClick={()=>seeDetail()}></img>
 
             <ReactModal
+                ariaHideApp={false}
                 className="detailModal"
-                isOpen={modal.showModal}
                 contentLabel="details tab"
+                isOpen={modal.showModal}
                 onRequestClose={hideDetail}
                 shouldCloseOnOverlayClick={true}
             >

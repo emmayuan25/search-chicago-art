@@ -75,6 +75,7 @@ header {
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
+    max-width: 200px;
 }
 
 .imgTitle {
@@ -86,4 +87,38 @@ header {
 .imgYear {
     background-color: rgba(250, 235, 215, 0.245);
     text-align: center;
+}
+
+/* Result Box: Modal */
+.detailModal {
+    align-items: center;
+    background-color: rgb(29, 36, 35);
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin: 150px 250px;
+    padding: 30px 10px;
+    width: 800px;
+}
+
+.detailImg {
+    height: 300px;
+    justify-content: center;
+    margin-left: 10px;
+    max-width: 500px;
+}
+
+.detailText {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+.textBold {
+    font-weight: bold;
+}
+
+.detailTitle {
+    font-size: 30px;
+    font-weight: bold;
 }

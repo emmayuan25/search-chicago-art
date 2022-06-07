@@ -7,13 +7,12 @@ function App(){
     const keywordRef = useRef();
     var keyword = "";
 
-    const [searchText, setSearchText] = useState('');
+    const [ searchText, setSearchText] = useState('');
+    const [ results, setResults ] = useState([]);
 
     const handleSearch = (e) => {
         setSearchText(e.target.value);
     } 
-
-    const [ results, setResults ] = useState([]);
 
     // get search keyword
     function handleKeyword(event) {
@@ -26,6 +25,7 @@ function App(){
         componentDidMount(searchText);
     }
 
+    // Call API with targeted query and get result array
     const componentDidMount = async (searchText) => {
         console.log(searchText);
         let response = await axios.get(`https://api.artic.edu/api/v1/artworks/search?q=${ searchText }&query[term][is_public_domain]=true`);
